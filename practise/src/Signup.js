@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react'
+import { Link } from "react-router-dom";
 export default function Signup(){
     const [data , setData] = useState({
         fullName : '',
@@ -19,12 +20,12 @@ export default function Signup(){
     const handleSubmit =(e)=>{
        e.preventDefault();
        console.log(data);
-       localStorage.setItem('TotalData' , JSON.stringify(data));
+       localStorage.setItem('signup_data' , JSON.stringify(data));
     }
     return(
         <div className="container">
              <form  className='form' onSubmit={handleSubmit}>
-                <h2>Validation Form</h2>
+                <h2>Register Form</h2>
                 <div className="row">
                     <div className="col-25">
                     <label for="fullname">Full Name</label>
@@ -86,6 +87,10 @@ export default function Signup(){
                 <div className="row">
                 <input type="submit" value="Sign up"/>
                 </div>
+                <div className="row text">
+                <p >If you have account <Link to={'/signin'} className='link' >Sign In</Link> here</p>
+                </div>
+              
             </form>
 
         </div>

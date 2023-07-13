@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function Signin(){
     const[inputData , setInputData] = useState({
@@ -16,11 +17,11 @@ export default function Signin(){
     const handlerSubmit = (e)=>{
         e.preventDefault();
         console.log(inputData);
-        localStorage.setItem('login_data',JSON.stringify(inputData));
+        localStorage.setItem('signin_data',JSON.stringify(inputData));
     }
 
     return(
-        <div className="container">
+        <div className="login_container">
             <fotm className="form">
                 <h2>Login Form</h2>
                 <div className="row">
@@ -53,9 +54,12 @@ export default function Signin(){
                     </div>
                 </div>
                 <div className="row">
-                <input type="submit" value="Sign In" onClick={handlerSubmit}/>
+                <input type="submit" value="Sign in" onClick={handlerSubmit}/>
                 </div>
-
+                <div className="row text">
+                <p >If you have no account <Link to={'/'} className="link">Sign Up</Link> here</p>
+                </div>
+              
             </fotm>
 
         </div>
